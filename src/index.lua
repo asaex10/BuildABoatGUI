@@ -1,9 +1,14 @@
+-- "Inspired" by Terni#9174
+-- Remade by bruh.exe#5138
+
+-- dont fucking bug me for my naming ways, i came from js you little shit
+
 local DiscordLib =
-    loadstring(game:HttpGet "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
 
-local win = DiscordLib:Window("LXSGUI | Hello ".. game.Players.LocalPlayer.DisplayName)
+local win = DiscordLib:Window("BabftUI | Hello ".. game.Players.LocalPlayer.DisplayName)
 
-local serv = win:Server("LXSGUI", "")
+local serv = win:Server("BabftUI", "")
 
 local Main = serv:Channel("Main")
 
@@ -15,14 +20,14 @@ Main:Button(
 )
 
 Main:Button(
-    "By Terni#9174",
+    "Inspired by Terni#9174, original is LXSGUI",
     function()
         setclipboard("Terni#9174")
     end
 )
 
 Main:Button(
-    "Modified by bruh.exe#5138",
+    "Remade by bruh.exe#5138",
     function()
         setclipboard("bruh.exe#5138")
     end
