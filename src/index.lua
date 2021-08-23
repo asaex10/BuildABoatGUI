@@ -3,6 +3,8 @@
 
 -- dont fucking bug me for my naming ways, i came from js you little shit
 
+-- plans: idk bruh maybe remake the ui xd and add antiafk
+
 local DiscordLib =
     loadstring(game:HttpGet"https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
 
