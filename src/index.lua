@@ -1,43 +1,38 @@
 -- "Inspired" by Terni#9174
--- Remade by bruh.exe#5138
+-- Made by bruh.exe#5138
 
--- dont fucking bug me for my naming ways, i came from js you little shit
-
--- plans: idk bruh maybe remake the ui xd and add antiafk
-
-local DiscordLib =
-    loadstring(game:HttpGet"https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
-
-local win = DiscordLib:Window("BabftUI | Hello ".. game.Players.LocalPlayer.DisplayName)
-
-local serv = win:Server("BabftUI", "")
-
-local Main = serv:Channel("Main")
-
-Main:Button(
-    "AUTO FARM",
-    function()
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/urmomjklol69/GoldFarmBabft/main/GoldFarm.lua')))()
+antiafk = {
+    bool = false,
+    pings = 0,
+    set = function (self, bool)
+        self.bool = bool
+    end,
+    init = function (self)
+        -- from https://github.com/zachariapopcorn/afk-system/blob/main/AntiAFKKick.lua, edited by me
+        -- Script contributed by ItzFireable (forum profile here: https://devforum.roblox.com/u/itzfireable/summary)
+        local vu = game:GetService("VirtualUser")
+        game:GetService("Players").LocalPlayer.Idled:connect(function()
+            if self.bool == true
+                vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+                wait(1)
+                vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+                wait(1)
+                vu:SetKeyDown("W")
+                wait(1)
+                vu.SetKeyUp("W")
+            else
+                self.pings = self.pings + 1
+                if self.pings > 7
+                    Sound:Play("rbxassetid://324189414")
+                    local SetCore = Starter:SetCore("SendNotification",{
+                        Title = "Stop being AFK",
+                        Text = "WAKE UP WAKE UP WAKE UP WAKE UP",
+                        Icon = "",
+                        Duration = 5
+                    })
+                end
+            end
+        end)
     end
-)
+}
 
-Main:Button(
-    "Inspired by Terni#9174, original is LXSGUI",
-    function()
-        setclipboard("Terni#9174")
-    end
-)
-
-Main:Button(
-    "Remade by bruh.exe#5138",
-    function()
-        setclipboard("bruh.exe#5138")
-    end
-)
-
-Main:Button(
-    "COPY DISCORD SERVER",
-    function()
-        setclipboard("https://discord.gg/EPTHrbcvH2")
-    end
-)
