@@ -1,6 +1,8 @@
 -- "Inspired" by Terni#9174
 -- Made by bruh.exe#5138
 
+local StarterGui = game:GetService("StarterGui")
+
 antiafk = {
     bool = false,
     pings = 0,
@@ -23,13 +25,22 @@ antiafk = {
             else
                 self.pings = self.pings + 1
                 if self.pings > 7
-                    Sound:Play("rbxassetid://324189414")
-                    local SetCore = Starter:SetCore("SendNotification",{
-                        Title = "Stop being AFK",
-                        Text = "WAKE UP WAKE UP WAKE UP WAKE UP",
-                        Icon = "",
-                        Duration = 5
-                    })
+                    Alarm = Instance.new("Sound")
+                    Alarm.SoundId = "rbxassetid://324189414"
+                    Alarm.Parent = game.Workspace
+                    Alarm.Volume = 100
+                    Alarm.Looped = false
+                    Alarm:Play()
+                    game.StarterGui:SetCore("ChatMakeSystemMessage", {
+                        Text = "WAKEY WAKEY";
+                        Color = Color3.fromRGB(255,10,10); --Makes the message red, you can adjust this one
+                        Font = Enum.Font.FredokaOne; --Font that you like (to use arial do Enum.Font.Arial, etc...)
+                        FontSize = Enum.FontSize.Size96; --I don't recommend changing this, but it's custom also :D
+                    });
+                    local StopAlarm = Game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
+                        Alarm:Stop()
+                        StopAlarm:Destroy()
+                    end)
                 end
             end
         end)
