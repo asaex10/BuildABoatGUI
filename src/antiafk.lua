@@ -1,4 +1,3 @@
--- "Inspired" by Terni#9174
 -- Made by bruh.exe#5138
 
 local StarterGui = game:GetService("StarterGui")
@@ -48,3 +47,4 @@ antiafk = {
     end
 }
 
+return antiafk
