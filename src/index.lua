@@ -4,7 +4,8 @@
 local StarterGui = game:GetService("StarterGui")
 
 antiafk = {
-    bool = false,
+    alarm = false,
+    enabled = false,
     pings = 0,
     set = function (self, bool)
         self.bool = bool
@@ -22,7 +23,7 @@ antiafk = {
                 vu:SetKeyDown("W")
                 wait(1)
                 vu.SetKeyUp("W")
-            else
+            elseif 
                 self.pings = self.pings + 1
                 if self.pings > 7
                     Alarm = Instance.new("Sound")
@@ -33,9 +34,9 @@ antiafk = {
                     Alarm:Play()
                     game.StarterGui:SetCore("ChatMakeSystemMessage", {
                         Text = "WAKEY WAKEY";
-                        Color = Color3.fromRGB(255,10,10); --Makes the message red, you can adjust this one
-                        Font = Enum.Font.FredokaOne; --Font that you like (to use arial do Enum.Font.Arial, etc...)
-                        FontSize = Enum.FontSize.Size96; --I don't recommend changing this, but it's custom also :D
+                        Color = Color3.fromRGB(255,10,10);
+                        Font = Enum.Font.FredokaOne;
+                        FontSize = Enum.FontSize.Size96;
                     });
                     local StopAlarm = Game.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
                         Alarm:Stop()
