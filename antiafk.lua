@@ -1,5 +1,3 @@
--- Made by bruh.exe#5138
-
 local StarterGui = game:GetService("StarterGui")
 
 antiafk = {
@@ -10,7 +8,7 @@ antiafk = {
         self.bool = bool
     end,
     init = function (self)
-        -- from https://github.com/zachariapopcorn/afk-system/blob/main/AntiAFKKick.lua, edited by me
+        -- from https://github.com/zachariapopcorn/afk-system/blob/main/AntiAFKKick.lua
         -- Script contributed by ItzFireable (forum profile here: https://devforum.roblox.com/u/itzfireable/summary)
         local vu = game:GetService("VirtualUser")
         game:GetService("Players").LocalPlayer.Idled:connect(function()
