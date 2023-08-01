@@ -1,7 +1,5 @@
 -- https://v3rmillion.net/showthread.php?pid=8199133#pid8199133
 local player = game.Players.LocalPlayer
-
-local noclip = false
 local CharParts = {}
 
 function SetupCharCollide(Char)
