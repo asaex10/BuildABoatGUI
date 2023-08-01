@@ -13,4 +13,4 @@ local function disable()
    event:Disconnect()
 end
 
-return enable, disable
+return { enable = enable, disable = disable }
