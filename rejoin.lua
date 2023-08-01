@@ -3,7 +3,7 @@ local function sameserver()
   TPS:TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer)
 end
 local function diffserver()
-  local Servers = HTTP:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100"))
+  local Servers = HTTP:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public0?sortOrder=2&excludeFullGames=true&limit=100"))
   local possible = {}
   for _, Server in Servers["data"] do
     if Server["id"] ~= game.JobId then
