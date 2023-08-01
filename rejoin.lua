@@ -13,3 +13,7 @@ local function diffserver()
   local server = possible[Random.new():NextInteger(1, #possible)]
   return TPService:TeleportToPlaceInstance(game.PlaceId, server)
 end
+return {
+  same = sameserver,
+  diff = diffserver
+}
